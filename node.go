@@ -1141,6 +1141,7 @@ func (n *node) handleProposals() bool {
 		plog.Infof("%s new rate limit state is %t", n.id(), rateLimited)
 	}
 	entries := n.incomingProposals.get(n.rateLimited)
+	plog.Infof("retrieved %d entries from proposal queue")
 	if len(entries) > 0 {
 		n.p.ProposeEntries(entries)
 		return true
